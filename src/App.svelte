@@ -112,7 +112,7 @@ import Legend from "$components/Legend.svelte";
 
 <div class="chart-container" bind:clientWidth={width}>
   <h1 class="title">The world population at a glance</h1>
-  <h2>Click on a country to view its population in 2021.</h2>
+  <h2>Click on a country to view its population in 2021</h2>
   <svg {width} {height} bind:this={globe} class:dragging>
     <!-- Glow -->
     <Glow />
@@ -187,7 +187,8 @@ import Legend from "$components/Legend.svelte";
 
   h1 {
     font-size: 1.75rem;
-    font-weight: 500;
+    font-weight: 700;
+    line-height: 30px;
     margin-bottom: 0.5rem;
   }
 
@@ -199,16 +200,17 @@ import Legend from "$components/Legend.svelte";
 
   @media (max-width: 468px) {
     h1 {
-      font-size: 1.5rem;
+      font-size: 1.2rem;
     }
     h2 {
-      font-size: 0.75rem;
+      font-size: 0.8rem;
     }
   }
   
   .chart-container {
     max-width: 468px;
     margin: 0 auto;
+    outline: none; /* Remove outline for focus */
   }
 
   :global(body) {
@@ -216,7 +218,8 @@ import Legend from "$components/Legend.svelte";
   }
 
   svg {
-    overflow: visible
+    overflow: visible;
+    outline: none; /* Remove outline for focus */
   }
 
   .dragging {
@@ -229,6 +232,10 @@ import Legend from "$components/Legend.svelte";
 
   /* Remove outline when path is focused. Typically a bad idea, but we're already highlighting the path */
   path:focus {
+    outline: none;
+  }
+
+  circle {
     outline: none;
   }
 
